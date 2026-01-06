@@ -18,13 +18,13 @@ body {
     position: relative;
     width: 100%;
 }
-
+.image-carousel video,
 .image-carousel img {
 display: none;
 width: 100%;
 border-radius: 8px;
 }
-
+.image-carousel video.active,
 .image-carousel img.active {
 display: block;
 }

@@ -19,7 +19,23 @@
     <div class="project-list">
         <ul>
             <li><div class="project-info">
-                <h3>Slime Mold & Ant Pathfinding</h3>
+                <h3>Recyclable classifier</h3>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div><div class="project-image">
+                
+                <div class="image-carousel">
+                    <video controls>
+                        <source src="videos/EcoquestRecycleTool2.mp4" type="video/mp4" class="active">
+                    </video>
+                    <img src="images/ecoquest_workflow.png">
+                  
+                    <button class="prev">‹</button>
+                    <button class="next">›</button>
+                </div>
+            </div></li>
+
+            <li><div class="project-info">
+                <h3>Slime Mold & Ant Colony Path Optimization</h3>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </div><div class="project-image">
                 <div class="image-carousel">
@@ -31,12 +47,20 @@
                     <button class="next">›</button>
                 </div>
             </div></li>
-
+            
             <li><div class="project-info">
-                <h3>Fractals</h3>
+                <h3>Fractal Visualizations</h3>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </div><div class="project-image">
-                <img src="images/fractal1.png" alt="Ryan Zheng">
+                <div class="image-carousel">
+                    <img src="images/levyc.png" alt="levyc" class="active">
+                    <img src="images/fractal1.png" alt="fractal 1">
+                    <img src="images/burningship.png">
+                  
+                    <button class="prev">‹</button>
+                    <button class="next">›</button>
+                </div>
+                
             </div></li>
 
             <li><div class="project-info">
@@ -61,23 +85,38 @@
     </div>
     <script>
         const carousels = document.querySelectorAll('.image-carousel');
-  
+        
         carousels.forEach(c => {
-          let imgs = c.querySelectorAll('img');
+          // Select all slides: images AND videos
+          const slides = Array.from(c.querySelectorAll('img, video'));
           let idx = 0;
-  
-          c.querySelector('.next').onclick = () => {
-            imgs[idx].classList.remove('active');
-            idx = (idx + 1) % imgs.length;
-            imgs[idx].classList.add('active');
+        
+          const showSlide = (i) => {
+            // Hide all slides
+            slides.forEach(slide => {
+              slide.classList.remove('active');
+              if (slide.tagName === 'VIDEO') slide.pause(); // pause videos not active
+            });
+        
+            // Show the current slide
+            slides[i].classList.add('active');
+        
+            // If the current slide is a video, play it
+            if (slides[i].tagName === 'VIDEO') slides[i].play();
           };
-  
+          showSlide(idx);
+          // Next button
+          c.querySelector('.next').onclick = () => {
+            idx = (idx + 1) % slides.length;
+            showSlide(idx);
+          };
+        
+          // Previous button
           c.querySelector('.prev').onclick = () => {
-            imgs[idx].classList.remove('active');
-            idx = (idx - 1 + imgs.length) % imgs.length;
-            imgs[idx].classList.add('active');
+            idx = (idx - 1 + slides.length) % slides.length;
+            showSlide(idx);
           };
         });
-      </script>
+        </script>
 </body>
 </html>
