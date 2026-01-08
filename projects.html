@@ -14,7 +14,7 @@
         </ul>
     </nav>
     <div class="header">
-        <h1>Projects</h1> 
+        <h1>Projects (under construction!)</h1> 
     </div>
     <div class="project-list">
         <ul>
@@ -22,7 +22,7 @@
                 <h3>Rust Chat Server</h3>
                 <div class="tech">
                     <b>Languages used:</b> Rust, SQLite <br>
-                    <b>Technologies used:</b> AWS <br>
+                    <b>Technologies used:</b> AWS, HTTP <br>
                     <b>Github:</b><a href="https://github.com/rzheng1232/rust-chat-server.git"> server link</a>    <a href="https://github.com/rzheng1232/CS199-128-Final-Project-FA25-">app link</a>
                 </div>
                 I developed the server backend to a chat app as part of the final project for my CS:199:128 (Intro to Rust) course to learn more about the system design behind messaging platforms. The relatively simple chat server is written in Rust, hosted on AWS EC2, and stores user data in a SQLite database. It relies primarily on the Axum library for its web application framework and also uses Argon2 for simple password encryption. To associate users and chat groups in a clean and scalable manner, I used a bipartite graph structure, with one partition containing users, the other containing chats, and a third table storing the associations between the two. To process incoming messages with low latency and minimal synchronization overhead, I arranged them in a priority queue based on time of arrival and used multithreading with mutex locks to divide the workload. Overall, I found this to be a extremely valuable experience that taught me a great deal about designing effective and reliable systems in Rust. 
@@ -40,10 +40,10 @@
                 <h3>Recyclable classifier</h3>
                 <div class="tech">
                     <b>Languages used:</b> Python, Flutter, Dart, SQLite <br>
-                    <b>Technologies used:</b> Flask, Tensorflow, Cloudflare Tunneling, Flutterflow, Firebase, Raspberry Pi, JSON <br>
+                    <b>Technologies used:</b> Flask, Tensorflow, Cloudflare Tunneling, Flutterflow, Firebase, Raspberry Pi, HTTP <br>
                     <b>Github:</b><a href="https://github.com/rzheng1232/EcoQuest-Backend"> backend link</a>
                 </div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                As part of the 2024 Congressional App Challenge, I developed the backend for an educational recycling app that enables users to take photos of objects and receive region-specific guidance on how to recycle them. The backend is a Python Flask server hosted with Waitress on a Raspberry Pi, exposed to the public via a Cloudflare tunnel. I implemented the image processing in two steps: first, a lightweight convolutional neural network classifies the image into one of several recyclable categories. Next, the classification, along with the user’s location data, is sent to a large language model (LLM) API, and the generated response is displayed to the user. The project ended up winning runner up in our region!
             </div><div class="project-image">
                 
                 <div class="image-carousel">
@@ -58,8 +58,27 @@
             </div></li>
 
             <li><div class="project-info">
+                <h3>Particle Fluid Simulation</h3>
+                <div class="tech">
+                    <b>Languages used:</b> Python <br>
+                    <b>Technologies used:</b> Pygame, Numpy <br>
+                    <b>Github:</b><a href="https://github.com/rzheng1232/simulation/tree/main/Fluid_simulation"> link</a>
+                </div>
+                I learned about gradients, vector fields, and touched on Navier Stokes in Calculus 3 and I found it really interesting, so of course I decided to create a computer simulation that replicates the behavior of a liquid. 
+            </div><div class="project-image">
+                <video controls>
+                    <source src="videos/fluid simulation.mp4" type="video/mp4">
+                </video>
+            </div></li>
+
+            <li><div class="project-info">
                 <h3>Slime Mold & Ant Colony Path Optimization</h3>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <div class="tech">
+                    <b>Languages used:</b> Python <br>
+                    <b>Technologies used:</b> Pygame, Numpy <br>
+                    <b>Github:</b><a href="https://github.com/rzheng1232/ant-sim"> link</a>
+                </div>
+                I was initially introduced to the intersection between computer science and natural processes after watching the youtube channel Pezzza's Work. I was extremely fascinated by the beautiful emergent behavior that arose from simple programmed interactions between particles or objects, so I tried my hand at designing my own version of these simulations. For the most part, my experiments were successful: Using pygame for a simple visual interface, I was able to replicate the path optimization behavior of ant colonies and by slightly modifying the simulation I could similarly replicate the behavior of slime mold growth. While I was able to get the emergent behavior I was looking for, I was unfamiliar with multithreading and parallel processing, and the simulations were unfortunately single threaded, relatively small, and EXTREMELY slow. I hope to come back and improve these simualtions once I get a better understanding of simulation and multithreading. 
             </div><div class="project-image">
                 <div class="image-carousel">
                     <img src="images/ant.png" class="active">
@@ -73,10 +92,17 @@
             
             <li><div class="project-info">
                 <h3>Fractal Visualizations</h3>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </div><div class="project-image">
+                <div class="tech">
+                    <b>Languages used:</b> Python <br>
+                    <b>Technologies used:</b> Pygame, Numpy <br>
+                    <b>Github:</b><a href="https://github.com/rzheng1232/FractalSetVisualization.git"> link</a>
+                </div>
+                In my Calculus BC class, we spent a day exploring topics surrounding fractals. I was immediately intrigued—particularly by the stunning images produced by iterative mathematical processes like the Mandelbrot set—so I set out to learn more about fractal visualization. I began with the Lèvy C fractal, which can be visualized using a simple iterative algorithm. For more complex fractals, I implemented the escape-time algorithm, allowing me to visualize the Mandelbrot, Julia, and Burning Ship fractals, along with many other variations. </div><div class="project-image">
                 <div class="image-carousel">
                     <img src="images/levyc.png" alt="levyc" class="active">
+                    <img src="images/fractal2.JPG" alt="fractal 2">
+                    <img src="images/fractal3.PNG" alt="fractal 3">
+                    <img src="images/fractal4.PNG" alt="fractal 4">
                     <img src="images/fractal1.png" alt="fractal 1">
                     <img src="images/burningship.png">
                   
@@ -84,15 +110,6 @@
                     <button class="next">›</button>
                 </div>
                 
-            </div></li>
-
-            <li><div class="project-info">
-                <h3>Particle Fluid Simulation</h3>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </div><div class="project-image">
-                <video controls>
-                    <source src="videos/fluid simulation.mp4" type="video/mp4">
-                </video>
             </div></li>
             
             <li><div class="project-info">
