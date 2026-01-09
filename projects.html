@@ -14,10 +14,26 @@
         </ul>
     </nav>
     <div class="header">
-        <h1>Projects (under construction!)</h1> 
+        <h1>Projects</h1> 
     </div>
     <div class="project-list">
         <ul>
+            <li><div class="project-info">
+                <h3>Boid's Algorithm Simulation</h3>
+                <div class="tech">
+                    <b>Languages used:</b> Python <br>
+                    <b>Technologies used:</b> Pygame <br>
+                    <b>Github:</b><a href="https://github.com/rzheng1232/boids"> link</a> 
+                </div>
+                This was a quick exploration into genetic algorithms play a role in swarming & flocking behaviors. I can't emphasize enough how amazing emergent behaviors are: by simply specifying 3 simple rules—Seperation, Alignment, and Cohesion—these complex and beautiful patterns appear. <br>
+                Side note: I able to figure out multiprocessing and effective distribution of work in this project, so I was able to simulate much more particles :)
+            </div><div class="project-image">
+                <video controls>
+                    <source src="videos/boids.mp4" type="video/mp4">
+                </video>
+                  
+            </div></li>
+
             <li><div class="project-info">
                 <h3>Rust Chat Server</h3>
                 <div class="tech">
@@ -64,7 +80,7 @@
                     <b>Technologies used:</b> Pygame, Numpy <br>
                     <b>Github:</b><a href="https://github.com/rzheng1232/simulation/tree/main/Fluid_simulation"> link</a>
                 </div>
-                I learned about gradients, vector fields, and touched on Navier Stokes in Calculus 3 and I found it really interesting, so of course I decided to create a computer simulation that replicates the behavior of a liquid. 
+                My interest in fluid simulation primarily arose after seeing some beautiful videos by created Sebastian Lague on the topic. Although never having touched the topic before, I decided to take on this project as a challenge to complete over the summer. Initially, I read some articles on Wikipedia and various other online sources to get a better understanding of the fundemental underlying mathematics behind fluid dynamics. However, since I lacked a lot of the mathematical foundation at the time, I decided to approach this simulation with a much simpler approach; I used a Smoothed Particle Hydrodynamics method (SPH) which calculated the particle movement through the pressure/density gradient and viscosity forces. Although this wasn't the most efficient method for fluid simulation, I was still able to get a fluid-esque behavior in my particles. In the future, I would like to create an improved simulation with the Lattice-Boltzmann method.    
             </div><div class="project-image">
                 <video controls>
                     <source src="videos/fluid simulation.mp4" type="video/mp4">
@@ -113,12 +129,21 @@
             </div></li>
             
             <li><div class="project-info">
-                <h3>FIRST Robotics</h3>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <h3>FIRST Robotics (Team 3984)</h3>
+                <b>Languages used:</b> Java, Python <br>
+                <b>Technologies used:</b> WPILib, PID & Control-Loops, Motion Profiling, OpenCV, Linux <br>
+                As the lead programmer on my High School Robotics Team for 3 years, I've had the oppurtunity to both make many close friends as well as learn key technical skills in the field of Robotics. During my time on the team, I switched code framework to a command-based structure, developed reliable competition-ready code for swerve drive and the various other subsystems of the robot, and used computer vision libraries to perform relatively simple vision alignment for automated point scoring and reliable autonomous routines. Furthermore, I co-developed the data pipeline for our team's custom virtual control and telemetry dashboard for our robot using Python Flask and WPILib Libraries. Overall, since my team lacked software mentorship, I had a challenging but invigorating experience self-learning the knowledge needed to program these features and I'll always be thankful for this unique oppurtunity to reinforce my skills as a programmer. 
+
             </div><div class="project-image">
-                <video controls>
-                    <source src="videos/Robotics.mp4" type="video/mp4">
-                </video>
+                <div class="image-carousel">
+                    <video controls>
+                        <source src="videos/Robotics.mp4" type="video/mp4">
+                    </video>
+                    <img src="images/robot2.jpeg">
+                    <button class="prev">‹</button>
+                    <button class="next">›</button>
+                </div>
+                
             </div></li>
             
         </ul>
@@ -131,7 +156,7 @@
           const slides = Array.from(c.querySelectorAll('img, video'));
           let idx = 0;
         
-          const showSlide = (i) => {
+          const showSlide = (i, userInitiated = false) => {
             // Hide all slides
             slides.forEach(slide => {
               slide.classList.remove('active');
@@ -142,7 +167,7 @@
             slides[i].classList.add('active');
         
             // If the current slide is a video, play it
-            if (slides[i].tagName === 'VIDEO') slides[i].play();
+            if (userInitiated && slides[i].tagName === 'VIDEO') slides[i].play();
           };
           showSlide(idx);
           // Next button
