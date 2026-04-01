@@ -5,42 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ryan Zheng</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/roughjs@latest/bundled/rough.js"></script>
 </head>
 <body>
-    <nav class="nav">
-        <ul>
-            <li><a href="index.html"><h3>Home</h3></a></li>
-            <li><a href="projects.html"><h3>Projects</h3></a></li>
-        </ul>
-    </nav>
-    <div class="profile-pic">
-        <img src="images/portrait.JPEG" alt="Ryan Zheng">
-    </div>
+
+
     <div class="header">
         <h1>Ryan Zheng</h1> 
+        <p class="subtitle">CS @ UIUC | Robotics & Neuromorphic Computing</p>
+        <div class="contact">
+            <a href="https://github.com/rzheng1232">
+                <img src="github-mark/github-mark.svg" alt="https://github.com/rzheng1232">
+            </a>
+            <a href="https://www.linkedin.com/in/rzheng1232">
+                <img src="in-logo/InBug-Black.png" alt="www.linkedin.com/in/rzheng1232">
+            </a>
+            <a href="mailto:rzheng1232@gmail.com">
+                <img src="images/Gmail_icon_(2020).svg" alt="rzheng1232@gmail.com">
+            </a>
+            <a href="Resume.pdf" target="_blank" rel="noopener noreferrer">
+                Resume
+            </a>
+        </div>
+        <div class="instruction">
+            <span class="pulse-dot"></span>
+            Hover over the nodes to explore
+        </div>
     </div>
-    <div class="contact">
-        <a href="https://github.com/rzheng1232">
-            <img src="github-mark/github-mark.svg" alt="https://github.com/rzheng1232">
-        </a>
-        <a href="https://www.linkedin.com/in/rzheng1232">
-            <img src="in-logo/InBug-Black.png" alt="www.linkedin.com/in/rzheng1232">
-        </a>
-        <a href="mailto:rzheng1232@gmail.com">
-            <img src="images/Gmail_icon_(2020).svg" alt="rzheng1232@gmail.com">
-        </a>
-        <a href="Resume.pdf" target="_blank" rel="noopener noreferrer">
-            Resume
-        </a>
-    </div>
-    <div class="body">
-        Hi! I'm an undergraduate student pursuing a degree in Computer Science (and potentially in Mathematics) at UIUC. 
-        Broadly, my interests surround creating reliable AI and machine learning systems that to solve real world problems.
-        I'm particularly fascinated by how biological mechanisms can inspire more efficient computing, 
-        such as in genetic algorithms and Spiking Neural Networks, but I'm always looking to explore new and exciting fields. 
-        Please feel free to reach out to my email for any questions, collaboration opportunities, or project discussions!
 
+    <div class="circle-area">
+    <div class="menu-container circle-medium" style="top: 0%; left: 15%;">
+        <svg class="menu-svg"></svg>
+        <img src="images/me.png" class="profile-img">
+        
+       
+        <div class="menu-overlay">
+            <h2>Ryan Zheng</h2>
+            <p>Hi! Welcome to my portfolio. 
+                I am a student studying Computer Science at UIUC 
+                excited about Robotics, ML, neuromorphic computing and bio-mimetic systems. 
+                I believe the ultimate source of technological inspiration comes from nature
+                and my goal is to decipher the algorithms of the natural world to build more resilient, adaptive, and sustainable machines. 
+            </p>
+        </div>
     </div>
+    <div class="menu-container circle-small" style="top: 40%; left: -10%;">
+        <svg class="menu-svg"></svg>
+        <img src="images/project1.png" class="profile-img">
+        <a><div class="menu-overlay">
+            <h2>Misc.</h2>
+            <p>
+                Fun stuff :)
+                <a href="funstuff.html" class="node-link">View Page →</a>
+            </p>
+        </div>
+    </div>
+    <div class="menu-container circle-small" style="top: 25%; left: 55%;">
+        <svg class="menu-svg"></svg>
+        <img src="images/project1.png" class="profile-img">
+        <a><div class="menu-overlay">
+            <h2>Brainzzzz</h2>
+            <p>
+                Brains are super cool!
+                <a href="brainzzzz.html" class="node-link">View Page →</a>
+            </p>
+        </div>
+    </div>
+    </div>
+    
 
 </body>
 </html>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const containers = document.querySelectorAll('.menu-container');
+
+        containers.forEach(container => {
+            // 2. Find the SVG and Image inside THIS specific container
+            const svg = container.querySelector('.menu-svg');
+            const rc = rough.svg(svg);
+            
+            // Dimensions (standardized)
+            const diameter = 350;
+            const centerX = 250; // Half of your 500px container
+            const centerY = 250;
+
+            const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            group.classList.add('menu-wrapper');
+
+            const hitArea = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            hitArea.setAttribute("cx", centerX);
+            hitArea.setAttribute("cy", centerY);
+            hitArea.setAttribute("r", diameter / 2); 
+            hitArea.setAttribute("fill", "transparent");
+            hitArea.style.pointerEvents = "all";
+
+            let sketchyCircle = rc.circle(centerX, centerY, diameter, {
+                hachureAngle: 60,
+                hachureGap: 8,
+                strokeWidth: 2,
+                stroke: "#333" 
+            });
+
+            group.appendChild(hitArea);     
+            group.appendChild(sketchyCircle);
+            svg.appendChild(group);
+
+            // 3. Hover logic targets THIS container only
+            container.addEventListener('mouseenter', () => container.classList.add('active'));
+            container.addEventListener('mouseleave', () => container.classList.remove('active'));
+        });
+    });
+</script>

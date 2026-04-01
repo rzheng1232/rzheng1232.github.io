@@ -10,10 +10,160 @@ html, body {
 } */
 body {
     display: flex;
-    justify-content: center; 
+    justify-content: flex-start; 
     flex-direction: column;
     align-items: center;    
 }
+
+
+.menu-container {
+    position: absolute; /* This allows the scattering */
+    transition: transform 0.5s ease;
+    pointer-events: auto;
+}
+.circle-area{
+    position: relative; /* This is the coordinate anchor for top/left */
+    width: 100%;
+    max-width: 1200px;
+    min-height: 700px; /* Adjust this value based on how much vertical space you need */
+}
+/* Vary the sizes */
+.circle-small { transform: scale(0.7); z-index: 5; }
+.circle-med   { transform: scale(1.0); z-index: 10; }
+.circle-large { transform: scale(1.3); z-index: 15; }
+
+/* Add a floating "float" animation to make them feel like they're in liquid */
+@keyframes float {
+    0% { translate: 0 0; }
+    50% { translate: 10px 15px; }
+    100% { translate: 0 0; }
+}
+
+.menu-container {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Offset the animation start so they don't move in sync */
+.menu-container:nth-child(2) { animation-delay: -2s; }
+.menu-container:nth-child(3) { animation-delay: -4.5s; }
+
+.circle-layout {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 100px 0;
+}
+.menu-svg {
+    width: 500px;
+    height: 500px;
+    margin-top: -50px;
+    display: block;
+    margin: 0 auto;
+    overflow: visible;
+    z-index: 2; 
+    pointer-events: none;
+}
+@keyframes circle-pulse-centered {
+    0% { transform: translate(-50%, -50%) scale(1.02); }
+    50% { transform: translate(-50%, -50%) scale(1.08); }
+    100% { transform: translate(-50%, -50%) scale(1.02); }
+}
+@keyframes circle-pulse-svg {
+    0% { transform: scale(1.02); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1.02); }
+}
+
+.menu-container.active .menu-wrapper{
+    filter: drop-shadow(0 0 18px rgba(0, 150, 255, 0.7));
+    /* Origin and Box are crucial so it pulses from the center */
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: circle-pulse-svg 4s ease-in-out infinite; 
+}
+.menu-container.active  .profile-img {
+    filter: grayscale(20%) blur(8px) brightness(0.7);
+    opacity: 0.4;
+    /* Grows with the circle pulse/scale */
+    transform: translate(-50%, -50%);
+    /* Expands the "window" of the image */
+    clip-path: circle(52% at center); 
+    animation: circle-pulse-centered 4s ease-in-out infinite;
+}
+.menu-wrapper {
+    z-index: 3;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    pointer-events: visiblePainted;
+    transform-origin: center;
+}
+
+
+.profile-img {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    
+    width: 350px; 
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    
+    /* 1. Initial Clip: Matches the circle size */
+    clip-path: circle(48% at center);
+    
+    /* 2. Style: Makes it look slightly integrated under the sketch */
+    filter: grayscale(20%) contrast(1.1) blur(0px) brightness(1);
+    opacity: 1; /* Slightly dim until hover */
+    
+    transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.8s ease, 
+                clip-path 0.5s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Styling the 'node' via the class we added in JS */
+
+.menu-container.active .menu-overlay{
+    z-index: 4;
+    opacity: 1;
+    transform: translate(-50%, -60%);
+}
+
+
+/* Ensure the overlay is still positioned correctly */
+.menu-overlay {
+    z-index: 3;
+    pointer-events: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px; 
+    height: 350px;
+    
+    /* This "bounds" the content */
+    border-radius: 50%; 
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Keeps text from touching the shaky edges */
+    box-sizing: border-box;
+
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    /* font-family: 'Architects Daughter', cursive, sans-serif; */
+    color: #333;
+}
+
 .project-info h3{
     margin-bottom:0;
 }
@@ -149,19 +299,22 @@ cursor: pointer;
 }
 .contact {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 1.25rem; 
 }
 .contact img {
-    width: clamp(28px, 8vw, 36px);
-    height: clamp(28px, 8vw, 36px);
+    width: clamp(14px, 8vw, 14px);
+    height: clamp(14px, 8vw, 14px);
   }
 .contact a {
     text-decoration: none;
 }
 .header {
     text-align: center; 
+    justify-content: center;
 }
+
 .body{
     text-align: center;
     margin: 0 10% 0 10%;
