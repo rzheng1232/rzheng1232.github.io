@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan | Fractal Visualizations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="project-body">
+    <a class="back-link" href="index.html">← Home</a>
+    <div class="project-wrap">
+        <div class="project-header">
+            <div class="project-tag" style="--tc:#2e9e5a;">Simulation</div>
+            <h1>Fractal Visualizations</h1>
+        </div>
+        <div class="project-meta">
+            <div><b>Languages:</b> Python</div>
+            <div><b>Technologies:</b> Pygame, NumPy</div>
+            <div><b>GitHub:</b> <a href="https://github.com/rzheng1232/FractalSetVisualization.git">link</a></div>
+        </div>
+        <div class="project-content">
+            <p>
+                In Calculus BC we spent a day exploring fractals. I was immediately intrigued — particularly by the stunning
+                images produced by iterative mathematical processes like the Mandelbrot set — so I set out to learn more.
+            </p>
+            <p>
+                I began with the Lévy C fractal, which can be visualized using a simple iterative algorithm. For more complex
+                fractals I implemented the escape-time algorithm, which allowed me to visualize the Mandelbrot, Julia, and
+                Burning Ship fractals along with many other variations.
+            </p>
+            <div class="project-media">
+                <div class="image-carousel">
+                    <img src="images/levyc.png" alt="Levy C" class="active" style="max-width:100%; border-radius:8px;">
+                    <img src="images/fractal2.JPG" alt="Fractal 2" style="max-width:100%; border-radius:8px;">
+                    <img src="images/fractal3.PNG" alt="Fractal 3" style="max-width:100%; border-radius:8px;">
+                    <img src="images/fractal4.PNG" alt="Fractal 4" style="max-width:100%; border-radius:8px;">
+                    <img src="images/fractal1.png" alt="Fractal 1" style="max-width:100%; border-radius:8px;">
+                    <img src="images/burningship.png" alt="Burning Ship" style="max-width:100%; border-radius:8px;">
+                    <button class="prev">‹</button>
+                    <button class="next">›</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.image-carousel').forEach(c => {
+            const slides = Array.from(c.querySelectorAll('img, video'));
+            let idx = 0;
+            const show = i => { slides.forEach(s => s.classList.remove('active')); slides[i].classList.add('active'); };
+            c.querySelector('.next').onclick = () => { idx = (idx + 1) % slides.length; show(idx); };
+            c.querySelector('.prev').onclick = () => { idx = (idx - 1 + slides.length) % slides.length; show(idx); };
+        });
+    </script>
+</body>
+</html>

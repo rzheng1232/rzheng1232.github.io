@@ -1,46 +1,242 @@
 <!DOCTYPE html>
-<html lang="en">    
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ryan Zheng</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <nav class="nav">
-        <ul>
-            <li><a href="index.html"><h3>Home</h3></a></li>
-            <li><a href="projects.html"><h3>Projects</h3></a></li>
-        </ul>
-    </nav>
-    <div class="profile-pic">
-        <img src="images/portrait.JPEG" alt="Ryan Zheng">
-    </div>
-    <div class="header">
-        <h1>Ryan Zheng</h1> 
-    </div>
-    <div class="contact">
-        <a href="https://github.com/rzheng1232">
-            <img src="github-mark/github-mark.svg" alt="https://github.com/rzheng1232">
-        </a>
-        <a href="https://www.linkedin.com/in/rzheng1232">
-            <img src="in-logo/InBug-Black.png" alt="www.linkedin.com/in/rzheng1232">
-        </a>
-        <a href="mailto:rzheng1232@gmail.com">
-            <img src="images/Gmail_icon_(2020).svg" alt="rzheng1232@gmail.com">
-        </a>
-        <a href="Resume.pdf" target="_blank" rel="noopener noreferrer">
-            Resume
-        </a>
-    </div>
-    <div class="body">
-        Hi! I'm an undergraduate student pursuing a degree in Computer Science (and potentially in Mathematics) at UIUC. 
-        Broadly, my interests surround creating reliable AI and machine learning systems that to solve real world problems.
-        I'm particularly fascinated by how biological mechanisms can inspire more efficient computing, 
-        such as in genetic algorithms and Spiking Neural Networks, but I'm always looking to explore new and exciting fields. 
-        Please feel free to reach out to my email for any questions, collaboration opportunities, or project discussions!
+<body class="home-body">
 
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle profile">&#9776;</button>
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-avatar-wrap">
+        <img src="images/me.png" class="sidebar-avatar" alt="Ryan Zheng">
     </div>
+    <div class="sidebar-name">Ryan Zheng</div>
+    <div class="sidebar-sub">CS @ UIUC</div>
+    <div class="sidebar-sub">Robotics · Neuromorphic · ML</div>
+
+    <p class="sidebar-about">
+        I build systems at the intersection of robotics, neuromorphic computing, and ML —
+        from EMG-driven robot arms and spiking neural nets to multi-agent AI and bio-mimetic simulations.
+    </p>
+
+    <div class="sidebar-links">
+        <a href="https://github.com/rzheng1232" target="_blank" title="GitHub">
+            <img src="github-mark/github-mark.svg" alt="GitHub">
+        </a>
+        <a href="https://www.linkedin.com/in/rzheng1232" target="_blank" title="LinkedIn">
+            <img src="in-logo/InBug-Black.png" alt="LinkedIn">
+        </a>
+        <a href="mailto:rzheng1232@gmail.com" title="Email">
+            <img src="images/Gmail_icon_(2020).svg" alt="Email">
+        </a>
+        <a href="Resume.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-resume">Resume</a>
+    </div>
+</aside>
+
+<main class="main-content">
+
+    <!-- ── Experience ── -->
+    <section class="content-section">
+        <h2 class="section-title">Experience</h2>
+
+        <div class="exp-entry">
+            <div class="exp-header">
+                <div class="exp-left">
+                    <img src="images/Block-I-orange-blue-background.png" class="exp-logo" alt="UIUC">
+                    <span class="exp-org">MATH 257 – Computational Linear Algebra</span>
+                    <span class="exp-sep">·</span>
+                    <span class="exp-role">Course Assistant</span>
+                </div>
+                <div class="exp-right">
+                    <span class="exp-location">Urbana, IL</span>
+                    <span class="exp-sep">·</span>
+                    <span class="exp-date">Jan 2026 – Present</span>
+                </div>
+            </div>
+            <ul class="exp-bullets">
+                <li>Facilitate weekly office hours helping students connect linear algebra concepts to practical Python implementations (Markov matrices, least squares regression, eigendecomposition).</li>
+                <li>Support 2–3 lab sections per week for 200+ students, providing guidance on NumPy-based code and independent problem-solving.</li>
+            </ul>
+        </div>
+
+        <div class="exp-entry">
+            <div class="exp-header">
+                <div class="exp-left">
+                    <img src="images/banner_tennlab_dark.png" class="exp-logo" alt="TENNLab">
+                    <span class="exp-org">University of Tennessee TENNLab</span>
+                    <span class="exp-sep">·</span>
+                    <span class="exp-role">Research Intern</span>
+                </div>
+                <div class="exp-right">
+                    <span class="exp-location">Knoxville, TN</span>
+                    <span class="exp-sep">·</span>
+                    <span class="exp-date">Jun 2024 – May 2025</span>
+                </div>
+            </div>
+            <ul class="exp-bullets">
+                <li>Architected a custom Python/Pygame visualization suite to replace a legacy Lua-based rendering engine that lacked macOS support.</li>
+                <li>Improved autonomous navigation efficiency by 35% in the F1Tenth simulator through evolutionary algorithms and reinforcement learning applied to Spiking Neural Networks.</li>
+                <li>Researched evolutionary optimization of Liquid State Machines for lightweight, real-time radio signal modulation classification under Professor Catherine Schuman.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ── Projects ── -->
+    <section class="content-section">
+        <h2 class="section-title">Projects</h2>
+        <div class="proj-category">
+            <div class="proj-category-label">ML, Neuromorphics, and More!</div>
+            <div class="proj-grid">
+                <a class="proj-card" href="ddpm.html">
+                    <div class="proj-card-tag" style="--tc:#8b3fc0;">Machine Learning</div>
+                    <h3>Diffusion (DDPM) Model from Scratch in C++</h3>
+                    <p>Trained a Diffusion Denoising Probablistic model with CNN backbone on MNIST based on the original paper published by Ho et. al. </p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">May 2026</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="eons.html">
+                    <div class="proj-card-tag" style="--tc:#8b3fc0;">Neuromorphic</div>
+                    <h3>EONS / F1Tenth</h3>
+                    <p>35% navigation improvement on F1Tenth via evolutionary algorithms &amp; spiking neural nets.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jun 2024 – May 2025</div>
+                        <div class="proj-card-wip">Under construction</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="radio-lsm.html">
+                    <div class="proj-card-tag" style="--tc:#8b3fc0;">Neuromorphic</div>
+                    <h3>Radio + LSM</h3>
+                    <p>Radio signal modulation classification using Liquid State Machines.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jun 2024 – May 2025</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="audio-lsm.html">
+                    <div class="proj-card-tag" style="--tc:#8b3fc0;">Neuromorphic</div>
+                    <h3>Audio + LSM</h3>
+                    <p>Audio classification using Liquid State Machines.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jun 2024 – May 2025</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <div class="proj-category">
+            <div class="proj-category-label">Robotics &amp; BCI</div>
+            <div class="proj-grid">
+                <a class="proj-card" href="bci.html">
+                    <div class="proj-card-tag" style="--tc:#1d7adb;">BCI</div>
+                    <h3>SIGRobotics BCI</h3>
+                    <p>Real-time multi-channel EMG pipeline for robotic arm control.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Sep 2025 – Present</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+        <div class="proj-category">
+            <div class="proj-category-label">Simulations</div>
+            <div class="proj-grid">
+                <a class="proj-card" href="boids.html">
+                    <div class="proj-card-tag" style="--tc:#2e9e5a;">Simulation</div>
+                    <h3>Boid's Algorithm</h3>
+                    <p>Emergent flocking simulation.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jan 2025</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="fluid-sim.html">
+                    <div class="proj-card-tag" style="--tc:#2e9e5a;">Simulation</div>
+                    <h3>Fluid Simulation</h3>
+                    <p>Real-time fluid dynamics simulation.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jan 2025</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="slime-ant.html">
+                    <div class="proj-card-tag" style="--tc:#2e9e5a;">Simulation</div>
+                    <h3>Slime Mold &amp; Ants</h3>
+                    <p>Bio-mimetic slime mold and ant colony simulations.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jan 2025</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="fractals.html">
+                    <div class="proj-card-tag" style="--tc:#2e9e5a;">Simulation</div>
+                    <h3>Fractals</h3>
+                    <p>Interactive fractal renderer.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jan 2025</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="proj-category">
+            <div class="proj-category-label">Hackathon</div>
+            <div class="proj-grid">
+                <a class="proj-card" href="catcare.html">
+                    <div class="proj-card-tag" style="--tc:#d95f3b;">Hackathon</div>
+                    <h3>CATCare</h3>
+                    <p>Best Beginner Hack @ HackIllinois 2026 · Multi-agent AI for heavy equipment inspection.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Mar 2026</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="ecoquest.html">
+                    <div class="proj-card-tag" style="--tc:#d95f3b;">Hackathon</div>
+                    <h3>EcoQuest</h3>
+                    <p>District Runner-up, Congressional App Challenge 2024 · CV + LLM recyclable classifier.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jul – Nov 2024</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="rust-chat.html">
+                    <div class="proj-card-tag" style="--tc:#d95f3b;">Hackathon</div>
+                    <h3>Rust Chat</h3>
+                    <p>Real-time terminal chat app built in Rust.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jan 2025</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script>
+const toggle   = document.getElementById('sidebarToggle');
+const sidebar  = document.getElementById('sidebar');
+const backdrop = document.getElementById('sidebarBackdrop');
+
+function openSidebar()  { sidebar.classList.add('open');  backdrop.classList.add('visible'); }
+function closeSidebar() { sidebar.classList.remove('open'); backdrop.classList.remove('visible'); }
+
+toggle.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+backdrop.addEventListener('click', closeSidebar);
+</script>
 
 </body>
 </html>

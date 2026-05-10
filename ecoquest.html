@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan | EcoQuest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="project-body">
+    <a class="back-link" href="index.html">← Home</a>
+    <div class="project-wrap">
+        <div class="project-header">
+            <div class="project-tag" style="--tc:#d95f3b;">Hackathon</div>
+            <h1>EcoQuest — Recyclable Classifier</h1>
+            <p class="project-subtitle">2024 Congressional App Challenge — Runner Up</p>
+        </div>
+        <div class="project-meta">
+            <div><b>Languages:</b> Python, Flutter, Dart, SQLite</div>
+            <div><b>Technologies:</b> Flask, TensorFlow, Cloudflare Tunneling, Firebase, Raspberry Pi</div>
+            <div><b>GitHub:</b> <a href="https://github.com/rzheng1232/EcoQuest-Backend">backend link</a></div>
+        </div>
+        <div class="project-content">
+            <p>
+                As part of the 2024 Congressional App Challenge, I developed the backend for an educational recycling app that
+                enables users to take photos of objects and receive region-specific guidance on how to recycle them.
+            </p>
+            <p>
+                The backend is a Python Flask server hosted with Waitress on a Raspberry Pi, exposed to the public via a
+                Cloudflare tunnel. Image processing runs in two steps: first, a lightweight convolutional neural network
+                classifies the image into one of several recyclable categories. Next, the classification along with the user's
+                location data is sent to an LLM API, and the generated response is displayed to the user.
+            </p>
+            <p>The project won runner up in our region!</p>
+            <div class="project-media">
+                <div class="image-carousel">
+                    <video controls style="max-width:100%; border-radius:8px;" class="active">
+                        <source src="videos/EcoquestRecycleTool2.mp4" type="video/mp4">
+                    </video>
+                    <img src="images/ecoquest_workflow.png" style="max-width:100%; border-radius:8px;">
+                    <button class="prev">‹</button>
+                    <button class="next">›</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.image-carousel').forEach(c => {
+            const slides = Array.from(c.querySelectorAll('img, video'));
+            let idx = 0;
+            const show = (i, user) => {
+                slides.forEach(s => { s.classList.remove('active'); if (s.tagName === 'VIDEO') s.pause(); });
+                slides[i].classList.add('active');
+                if (user && slides[i].tagName === 'VIDEO') slides[i].play();
+            };
+            show(idx, false);
+            c.querySelector('.next').onclick = () => { idx = (idx + 1) % slides.length; show(idx, true); };
+            c.querySelector('.prev').onclick = () => { idx = (idx - 1 + slides.length) % slides.length; show(idx, true); };
+        });
+    </script>
+</body>
+</html>

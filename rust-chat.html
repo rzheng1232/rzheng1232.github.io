@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan | Rust Chat App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="project-body">
+    <a class="back-link" href="index.html">← Home</a>
+    <div class="project-wrap">
+        <div class="project-header">
+            <div class="project-tag" style="--tc:#d95f3b;">Hackathon</div>
+            <h1>Rust Server-Client Chat Application</h1>
+        </div>
+        <div class="project-meta">
+            <div><b>Languages:</b> Rust, SQLite</div>
+            <div><b>Technologies:</b> AWS, HTTP, Axum, Argon2</div>
+            <div><b>GitHub:</b>
+                <a href="https://github.com/rzheng1232/rust-chat-server.git">server</a> &nbsp;|&nbsp;
+                <a href="https://github.com/rzheng1232/CS199-128-Final-Project-FA25-">app</a>
+            </div>
+        </div>
+        <div class="project-content">
+            <p>
+                I developed the server backend to a chat app as part of the final project for my CS:199:128 (Intro to Rust) course
+                to learn more about the system design behind messaging platforms. The relatively simple chat server is written in Rust,
+                hosted on AWS EC2, and stores user data in a SQLite database. It relies primarily on the Axum library for its web
+                application framework and also uses Argon2 for simple password encryption.
+            </p>
+            <p>
+                To associate users and chat groups in a clean and scalable manner, I used a bipartite graph structure, with one
+                partition containing users, the other containing chats, and a third table storing the associations between the two.
+                To process incoming messages with low latency and minimal synchronization overhead, I arranged them in a priority queue
+                based on time of arrival and used multithreading with mutex locks to divide the workload.
+            </p>
+            <p>
+                Overall, I found this to be an extremely valuable experience that taught me a great deal about designing effective
+                and reliable systems in Rust.
+            </p>
+            <div class="project-media">
+                <img src="images/chatapp.png" style="max-width:100%; border-radius:8px;">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
