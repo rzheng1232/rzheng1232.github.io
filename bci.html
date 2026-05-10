@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan | SIGRobotics BCI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html"><h3>Home</h3></a></li>
+        </ul>
+    </nav>
+    <div class="page-wrap">
+        <div class="header">
+            <h1>SIGRobotics</h1>
+            <p class="subtitle">Brain-Computer Interface &amp; Robotic Arm Control</p>
+        </div>
+        <div class="project-page">
+            <div class="meta">
+                <div><b>Domain:</b> Robotics, BCI, Signal Processing, ML</div>
+                <div><b>Technologies:</b> Python, Digital Signal Processing, Machine Learning Classification</div>
+                <div><b>Organization:</b> SIGRobotics @ UIUC</div>
+            </div>
+            <p>
+                Some of the work I've developed as part of the BCI project team lead for SIGRobotics 
+            </p>
+            <p>
+                The goal of the SIGRobotics BCI team is to develop a silent-speech interface using EMG signasl from jaw muscles
+                We bought the ArdEEG biosensing shield for Arduino for around $200 and our first goal was to develop a robust data collection platform 
+                to record EMG data alongside other data modalities (like video). 
+
+                The system captures multi-channel EMG data from surface electrodes, processes it through a
+                digital signal processing (DSP) pipeline — including filtering, windowing, and feature
+                extraction — and feeds the result into an ML classifier that maps muscle activation patterns
+                to discrete arm commands. The classified output is then streamed to the robot controller for
+                low-latency execution.
+            </p>
+            <p>
+                The focus has been on keeping the full pipeline real-time: minimizing latency from sensor
+                capture through classification to actuation, while maintaining classification accuracy across
+                different users and electrode placements.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
