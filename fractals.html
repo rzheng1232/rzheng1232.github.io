@@ -6,22 +6,19 @@
     <title>Ryan | Fractal Visualizations</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <nav class="nav">
-        <ul>
-            <li><a href="index.html"><h3>Home</h3></a></li>
-        </ul>
-    </nav>
-    <div class="page-wrap">
-        <div class="header">
+<body class="project-body">
+    <a class="back-link" href="index.html">← Home</a>
+    <div class="project-wrap">
+        <div class="project-header">
+            <div class="project-tag" style="--tc:#2e9e5a;">Simulation</div>
             <h1>Fractal Visualizations</h1>
         </div>
-        <div class="project-page">
-            <div class="meta">
-                <div><b>Languages:</b> Python</div>
-                <div><b>Technologies:</b> Pygame, NumPy</div>
-                <div><b>GitHub:</b> <a href="https://github.com/rzheng1232/FractalSetVisualization.git">link</a></div>
-            </div>
+        <div class="project-meta">
+            <div><b>Languages:</b> Python</div>
+            <div><b>Technologies:</b> Pygame, NumPy</div>
+            <div><b>GitHub:</b> <a href="https://github.com/rzheng1232/FractalSetVisualization.git">link</a></div>
+        </div>
+        <div class="project-content">
             <p>
                 In Calculus BC we spent a day exploring fractals. I was immediately intrigued — particularly by the stunning
                 images produced by iterative mathematical processes like the Mandelbrot set — so I set out to learn more.
@@ -31,7 +28,7 @@
                 fractals I implemented the escape-time algorithm, which allowed me to visualize the Mandelbrot, Julia, and
                 Burning Ship fractals along with many other variations.
             </p>
-            <div class="project-image" style="margin-top:2rem;">
+            <div class="project-media">
                 <div class="image-carousel">
                     <img src="images/levyc.png" alt="Levy C" class="active" style="max-width:100%; border-radius:8px;">
                     <img src="images/fractal2.JPG" alt="Fractal 2" style="max-width:100%; border-radius:8px;">
@@ -46,8 +43,7 @@
         </div>
     </div>
     <script>
-        const carousels = document.querySelectorAll('.image-carousel');
-        carousels.forEach(c => {
+        document.querySelectorAll('.image-carousel').forEach(c => {
             const slides = Array.from(c.querySelectorAll('img, video'));
             let idx = 0;
             const show = i => { slides.forEach(s => s.classList.remove('active')); slides[i].classList.add('active'); };

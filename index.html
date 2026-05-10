@@ -5,567 +5,238 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ryan Zheng</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/roughjs@latest/bundled/rough.js"></script>
 </head>
-<body class="graph-body">
+<body class="home-body">
 
-<div class="graph-viewport" id="viewport">
-    <div class="graph-world" id="world">
-        <svg id="edges-svg" style="position:absolute;top:0;left:0;width:1px;height:1px;overflow:visible;pointer-events:none;"></svg>
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle profile">&#9776;</button>
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-avatar-wrap">
+        <img src="images/me.png" class="sidebar-avatar" alt="Ryan Zheng">
     </div>
-</div>
+    <div class="sidebar-name">Ryan Zheng</div>
+    <div class="sidebar-sub">CS @ UIUC</div>
+    <div class="sidebar-sub">Robotics · Neuromorphic · ML</div>
 
-<div class="graph-ui">
-    <div class="intro-card">
-        <div class="intro-top">
-            <div class="intro-avatar-wrap">
-                <img src="images/me.png" class="intro-avatar" alt="Ryan Zheng">
+    <p class="sidebar-about">
+        I build systems at the intersection of robotics, neuromorphic computing, and ML —
+        from EMG-driven robot arms and spiking neural nets to multi-agent AI and bio-mimetic simulations.
+    </p>
+
+    <div class="sidebar-links">
+        <a href="https://github.com/rzheng1232" target="_blank" title="GitHub">
+            <img src="github-mark/github-mark.svg" alt="GitHub">
+        </a>
+        <a href="https://www.linkedin.com/in/rzheng1232" target="_blank" title="LinkedIn">
+            <img src="in-logo/InBug-Black.png" alt="LinkedIn">
+        </a>
+        <a href="mailto:rzheng1232@gmail.com" title="Email">
+            <img src="images/Gmail_icon_(2020).svg" alt="Email">
+        </a>
+        <a href="Resume.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-resume">Resume</a>
+    </div>
+</aside>
+
+<main class="main-content">
+
+    <!-- ── Experience ── -->
+    <section class="content-section">
+        <h2 class="section-title">Experience</h2>
+
+        <div class="exp-entry">
+            <div class="exp-header">
+                <div class="exp-left">
+                    <img src="images/Block-I-orange-blue-background.png" class="exp-logo" alt="UIUC">
+                    <span class="exp-org">MATH 257 – Computational Linear Algebra</span>
+                    <span class="exp-sep">·</span>
+                    <span class="exp-role">Course Assistant</span>
+                </div>
+                <div class="exp-right">
+                    <span class="exp-location">Urbana, IL</span>
+                    <span class="exp-sep">·</span>
+                    <span class="exp-date">Jan 2026 – Present</span>
+                </div>
             </div>
-            <div class="intro-identity">
-                <div class="intro-name">Ryan Zheng</div>
-                <div class="intro-subtitle">CS @ UIUC</div>
-                <div class="intro-subtitle">Robotics · Neuromorphic · ML</div>
+            <ul class="exp-bullets">
+                <li>Facilitate weekly office hours helping students connect linear algebra concepts to practical Python implementations (Markov matrices, least squares regression, eigendecomposition).</li>
+                <li>Support 2–3 lab sections per week for 200+ students, providing guidance on NumPy-based code and independent problem-solving.</li>
+            </ul>
+        </div>
+
+        <div class="exp-entry">
+            <div class="exp-header">
+                <div class="exp-left">
+                    <img src="images/banner_tennlab_dark.png" class="exp-logo" alt="TENNLab">
+                    <span class="exp-org">University of Tennessee TENNLab</span>
+                    <span class="exp-sep">·</span>
+                    <span class="exp-role">Research Intern</span>
+                </div>
+                <div class="exp-right">
+                    <span class="exp-location">Knoxville, TN</span>
+                    <span class="exp-sep">·</span>
+                    <span class="exp-date">Jun 2024 – May 2025</span>
+                </div>
+            </div>
+            <ul class="exp-bullets">
+                <li>Architected a custom Python/Pygame visualization suite to replace a legacy Lua-based rendering engine that lacked macOS support.</li>
+                <li>Improved autonomous navigation efficiency by 35% in the F1Tenth simulator through evolutionary algorithms and reinforcement learning applied to Spiking Neural Networks.</li>
+                <li>Researched evolutionary optimization of Liquid State Machines for lightweight, real-time radio signal modulation classification under Professor Catherine Schuman.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ── Projects ── -->
+    <section class="content-section">
+        <h2 class="section-title">Projects</h2>
+        <div class="proj-category">
+            <div class="proj-category-label">ML, Neuromorphics, and More!</div>
+            <div class="proj-grid">
+                <a class="proj-card" href="ddpm.html">
+                    <div class="proj-card-tag" style="--tc:#8b3fc0;">Machine Learning</div>
+                    <h3>Diffusion (DDPM) Model from Scratch in C++</h3>
+                    <p>Trained a Diffusion Denoising Probablistic model with CNN backbone on MNIST based on the original paper published by Ho et. al. </p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">May 2026</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="eons.html">
+                    <div class="proj-card-tag" style="--tc:#8b3fc0;">Neuromorphic</div>
+                    <h3>EONS / F1Tenth</h3>
+                    <p>35% navigation improvement on F1Tenth via evolutionary algorithms &amp; spiking neural nets.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jun 2024 – May 2025</div>
+                        <div class="proj-card-wip">Under construction</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="radio-lsm.html">
+                    <div class="proj-card-tag" style="--tc:#8b3fc0;">Neuromorphic</div>
+                    <h3>Radio + LSM</h3>
+                    <p>Radio signal modulation classification using Liquid State Machines.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jun 2024 – May 2025</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="audio-lsm.html">
+                    <div class="proj-card-tag" style="--tc:#8b3fc0;">Neuromorphic</div>
+                    <h3>Audio + LSM</h3>
+                    <p>Audio classification using Liquid State Machines.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jun 2024 – May 2025</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
             </div>
         </div>
-        <p class="intro-desc">
-            I build systems at the intersection of robotics, neuromorphic computing, and ML —
-            from EMG-driven robot arms and spiking neural nets to multi-agent AI and bio-mimetic simulations.
-        </p>
-        <div class="intro-links">
-            <a href="https://github.com/rzheng1232" target="_blank"><img src="github-mark/github-mark.svg" alt="GitHub"></a>
-            <a href="https://www.linkedin.com/in/rzheng1232" target="_blank"><img src="in-logo/InBug-Black.png" alt="LinkedIn"></a>
-            <a href="mailto:rzheng1232@gmail.com"><img src="images/Gmail_icon_(2020).svg" alt="Email"></a>
-            <a href="Resume.pdf" target="_blank" rel="noopener noreferrer" class="intro-resume">Resume</a>
+        
+        <div class="proj-category">
+            <div class="proj-category-label">Robotics &amp; BCI</div>
+            <div class="proj-grid">
+                <a class="proj-card" href="bci.html">
+                    <div class="proj-card-tag" style="--tc:#1d7adb;">BCI</div>
+                    <h3>SIGRobotics BCI</h3>
+                    <p>Real-time multi-channel EMG pipeline for robotic arm control.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Sep 2025 – Present</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="graph-hint">
-        <span class="pulse-dot"></span>
-        Drag to pan &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Click to explore
-    </div>
-</div>
+
+        
+        
+        <div class="proj-category">
+            <div class="proj-category-label">Simulations</div>
+            <div class="proj-grid">
+                <a class="proj-card" href="boids.html">
+                    <div class="proj-card-tag" style="--tc:#2e9e5a;">Simulation</div>
+                    <h3>Boid's Algorithm</h3>
+                    <p>Emergent flocking simulation.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jan 2025</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="fluid-sim.html">
+                    <div class="proj-card-tag" style="--tc:#2e9e5a;">Simulation</div>
+                    <h3>Fluid Simulation</h3>
+                    <p>Real-time fluid dynamics simulation.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jan 2025</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="slime-ant.html">
+                    <div class="proj-card-tag" style="--tc:#2e9e5a;">Simulation</div>
+                    <h3>Slime Mold &amp; Ants</h3>
+                    <p>Bio-mimetic slime mold and ant colony simulations.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jan 2025</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="fractals.html">
+                    <div class="proj-card-tag" style="--tc:#2e9e5a;">Simulation</div>
+                    <h3>Fractals</h3>
+                    <p>Interactive fractal renderer.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jan 2025</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="proj-category">
+            <div class="proj-category-label">Hackathon</div>
+            <div class="proj-grid">
+                <a class="proj-card" href="catcare.html">
+                    <div class="proj-card-tag" style="--tc:#d95f3b;">Hackathon</div>
+                    <h3>CATCare</h3>
+                    <p>Best Beginner Hack @ HackIllinois 2026 · Multi-agent AI for heavy equipment inspection.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Mar 2026</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="ecoquest.html">
+                    <div class="proj-card-tag" style="--tc:#d95f3b;">Hackathon</div>
+                    <h3>EcoQuest</h3>
+                    <p>District Runner-up, Congressional App Challenge 2024 · CV + LLM recyclable classifier.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jul – Nov 2024</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+                <a class="proj-card" href="rust-chat.html">
+                    <div class="proj-card-tag" style="--tc:#d95f3b;">Hackathon</div>
+                    <h3>Rust Chat</h3>
+                    <p>Real-time terminal chat app built in Rust.</p>
+                    <div class="proj-card-footer">
+                        <div class="proj-card-date">Jan 2025</div>
+                        <div class="proj-card-wip">Page under construction, pls be patient :)</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
 
 <script>
-'use strict';
+const toggle   = document.getElementById('sidebarToggle');
+const sidebar  = document.getElementById('sidebar');
+const backdrop = document.getElementById('sidebarBackdrop');
 
-const NODES = {
-  root:        { label:'Ryan Zheng',      sub:'CS @ UIUC · Robotics & Neuromorphic',
-                 color:'#dedad2', radius:72, type:'root',  children:['projects','misc'] },
-  projects:    { label:'Projects',        color:'#b8c3cc', radius:56, type:'group',
-                 children:['cat-bci','cat-neuro','cat-sim','cat-hack'] },
-  misc:        { label:'Misc.',           desc:'Fun stuff :)',
-                 color:'#9ba4b5', radius:44, type:'page',  url:'funstuff.html', children:[] },
-  'cat-bci':   { label:'Robotics\n& BCI', color:'#1d7adb', radius:48, type:'group', children:['proj-bci'] },
-  'cat-neuro': { label:'Neuromorphic',    color:'#8b3fc0', radius:48, type:'group', children:['proj-eons','proj-radio-lsm','proj-audio-lsm'] },
-  'cat-sim':   { label:'Simulations',     color:'#2e9e5a', radius:48, type:'group', children:['proj-boids','proj-fluid','proj-slime','proj-fractals'] },
-  'cat-hack':  { label:'Hackathon',       color:'#d95f3b', radius:48, type:'group', children:['proj-catcare','proj-ecoquest','proj-rustchat'] },
-  'proj-bci':       { label:'SIGRobotics\nBCI',   desc:'Real-time multi-channel EMG pipeline for robotic arm control',
-                      color:'#1d7adb', radius:38, type:'page', url:'bci.html',       children:[] },
-  'proj-eons':      { label:'EONS /\nF1tenth',    desc:'35% navigation improvement on F1Tenth via evolutionary algorithms & spiking neural nets',
-                      color:'#8b3fc0', radius:38, type:'page', url:'eons.html',      children:[] },
-  'proj-radio-lsm': { label:'Radio\n+ LSM',       desc:'Radio signal modulation classification using Liquid State Machines',
-                      color:'#8b3fc0', radius:38, type:'page', url:'radio-lsm.html', children:[] },
-  'proj-audio-lsm': { label:'Audio\n+ LSM',       desc:'Audio classification using Liquid State Machines',
-                      color:'#8b3fc0', radius:38, type:'page', url:'audio-lsm.html', children:[] },
-  'proj-boids':     { label:"Boid's\nAlgorithm",  desc:'Emergent flocking simulation',
-                      color:'#2e9e5a', radius:38, type:'page', url:'boids.html',     children:[] },
-  'proj-fluid':     { label:'Fluid\nSimulation',  desc:'Real-time fluid dynamics simulation',
-                      color:'#2e9e5a', radius:38, type:'page', url:'fluid-sim.html', children:[] },
-  'proj-slime':     { label:'Slime Mold\n& Ants', desc:'Bio-mimetic slime mold and ant colony simulations',
-                      color:'#2e9e5a', radius:38, type:'page', url:'slime-ant.html', children:[] },
-  'proj-fractals':  { label:'Fractals',           desc:'Interactive fractal renderer',
-                      color:'#2e9e5a', radius:38, type:'page', url:'fractals.html',  children:[] },
-  'proj-catcare':   { label:'CATCare',            desc:'Best Beginner Hack @ HackIllinois 2026 · Multi-agent AI for heavy equipment inspection',
-                      color:'#d95f3b', radius:38, type:'page', url:'catcare.html',   children:[] },
-  'proj-ecoquest':  { label:'EcoQuest',           desc:'District Runner-up, Congressional App Challenge 2024 · CV + LLM recyclable classifier',
-                      color:'#d95f3b', radius:38, type:'page', url:'ecoquest.html',  children:[] },
-  'proj-rustchat':  { label:'Rust Chat',          desc:'Real-time terminal chat app built in Rust',
-                      color:'#d95f3b', radius:38, type:'page', url:'rust-chat.html', children:[] },
-};
+function openSidebar()  { sidebar.classList.add('open');  backdrop.classList.add('visible'); }
+function closeSidebar() { sidebar.classList.remove('open'); backdrop.classList.remove('visible'); }
 
-const nodePos    = {};  // id → {x, y, angle, depth}
-const nodeEls    = {};  // id → DOM element
-const edgeEls    = {};  // 'from:to' → SVG line element
-const edgeRest   = {};  // 'from:to' → rest length (pixels, set at creation)
-const expanded   = new Set();
-
-let wx = 0, wy = 0, wScale = 1;
-let dragging = false, dx0 = 0, dy0 = 0, wx0 = 0, wy0 = 0;
-let pinchDist = 0;
-
-// node drag state
-let dragNode = null, dragStartCX = 0, dragStartCY = 0, dragOriginX = 0, dragOriginY = 0, isDragNode = false;
-
-const viewport = document.getElementById('viewport');
-const world    = document.getElementById('world');
-const edgesSvg = document.getElementById('edges-svg');
-
-/* ── transform ───────────────────────────────────────────── */
-function applyT(animate) {
-    world.style.transition = animate ? 'transform .65s cubic-bezier(.25,.46,.45,.94)' : 'none';
-    world.style.transform  = `translate(${wx}px,${wy}px) scale(${wScale})`;
-}
-
-function centerOn(id) {
-    const p = nodePos[id];
-    wx = window.innerWidth  / 2 - p.x * wScale;
-    wy = window.innerHeight / 2 - p.y * wScale;
-    applyT(true);
-}
-
-function centerOnGroup(ids) {
-    let sx = 0, sy = 0, n = 0;
-    ids.forEach(id => { if (nodePos[id]) { sx += nodePos[id].x; sy += nodePos[id].y; n++; } });
-    if (!n) return;
-    wx = window.innerWidth  / 2 - (sx / n) * wScale;
-    wy = window.innerHeight / 2 - (sy / n) * wScale;
-    applyT(true);
-}
-
-/* ── layout ──────────────────────────────────────────────── */
-function fanAngles(n, base) {
-    if (base === null) {
-        // root: full circle so children spread in all directions
-        return Array.from({length: n}, (_, i) => (2 * Math.PI * i / n) - Math.PI / 2);
-    }
-    if (n === 1) return [base];
-    // at least ~75° per child, capped at 200° total so it stays a fan not a full ring
-    const s = Math.min(Math.PI * (200 / 180), n * 0.85);
-    return Array.from({length: n}, (_, i) => base + (i / (n - 1) - 0.5) * s);
-}
-
-function calcChildDist(parentId) {
-    const d      = NODES[parentId];
-    const n      = d.children.length;
-    const childR = Math.max(...d.children.map(c => NODES[c].radius));
-    if (n <= 1) return d.radius + childR * 2 + 40;
-    const spread     = Math.min(Math.PI * 0.9, (n - 1) * 0.65);
-    const deltaAngle = spread / (n - 1);
-    // minimum radial distance so adjacent siblings don't touch
-    const minNoOverlap = (childR * 2 + 20) / (2 * Math.sin(deltaAngle / 2));
-    return Math.max(d.radius + childR + 40, minNoOverlap);
-}
-
-/* redraw all edge endpoints from current nodePos */
-function refreshEdges() {
-    for (const key of Object.keys(edgeEls)) {
-        const [from, to] = key.split(':');
-        const fp = nodePos[from], tp = nodePos[to];
-        if (!fp || !tp) continue;
-        const dx  = tp.x - fp.x, dy = tp.y - fp.y;
-        const len = Math.sqrt(dx * dx + dy * dy) || 1;
-        const nx  = dx / len, ny = dy / len;
-        const ln  = edgeEls[key];
-        ln.setAttribute('x1', fp.x + nx * NODES[from].radius);
-        ln.setAttribute('y1', fp.y + ny * NODES[from].radius);
-        ln.setAttribute('x2', tp.x - nx * NODES[to].radius);
-        ln.setAttribute('y2', tp.y - ny * NODES[to].radius);
-    }
-}
-
-/* apply spring forces for all edges — only moves nodes in movableSet */
-function applySpring(movableSet, k = 0.18) {
-    for (const key of Object.keys(edgeRest)) {
-        const [from, to] = key.split(':');
-        const fp = nodePos[from], tp = nodePos[to];
-        if (!fp || !tp) continue;
-        const dx   = tp.x - fp.x, dy = tp.y - fp.y;
-        const dist = Math.sqrt(dx * dx + dy * dy) || 0.001;
-        const ext  = dist - edgeRest[key];          // +ve = stretched, -ve = compressed
-        if (Math.abs(ext) < 0.5) continue;
-        const nx = dx / dist, ny = dy / dist;
-        const f  = ext * k;
-        if (movableSet.has(to))   { tp.x -= nx * f; tp.y -= ny * f; }
-        if (movableSet.has(from)) { fp.x += nx * f; fp.y += ny * f; }
-    }
-}
-
-// /* push all non-root nodes away from the dragged node while dragging */
-// function pushFromDragged(draggedId) {
-//     const PAD = 14;
-//     const da  = nodePos[draggedId];
-//     for (let iter = 0; iter < 6; iter++) {
-//         for (const bid of Object.keys(nodePos)) {
-//             if (bid === draggedId || bid === 'root' || !nodePos[bid]) continue;
-//             const b    = nodePos[bid];
-//             const dx   = b.x - da.x, dy = b.y - da.y;
-//             const dist = Math.sqrt(dx * dx + dy * dy) || 0.001;
-//             const minD = NODES[draggedId].radius + NODES[bid].radius + PAD;
-//             if (dist >= minD) continue;
-//             const push = (minD - dist) / dist;
-//             b.x += dx * push;
-//             b.y += dy * push;
-//             const el = nodeEls[bid];
-//             if (el) {
-//                 el.style.left = (b.x - NODES[bid].radius) + 'px';
-//                 el.style.top  = (b.y - NODES[bid].radius) + 'px';
-//             }
-//         }
-//     }
-// }
-
-/* propagate spring forces during live drag so connected nodes trail along */
-function propagateDrag(draggedId) {
-    const movable = new Set(Object.keys(nodePos).filter(id => id !== draggedId && id !== 'root'));
-    for (let i = 0; i < 10; i++) applySpring(movable, 0.4);
-    for (const id of movable) {
-        const el = nodeEls[id]; if (!el) continue;
-        el.style.left = (nodePos[id].x - NODES[id].radius) + 'px';
-        el.style.top  = (nodePos[id].y - NODES[id].radius) + 'px';
-    }
-}
-
-/* physics sim — movableIds pushed apart by collisions + spring constraints */
-let simRaf = null;
-
-function runSim(movableIds, fixedOverride = null) {
-    if (simRaf) cancelAnimationFrame(simRaf);
-
-    const PAD       = 16;
-    const MAX       = 100;
-    let   iter      = 0;
-    const movSet    = new Set(movableIds);
-
-    function step() {
-        const allIds = Object.keys(nodePos);
-        let active   = false;
-
-        // collision repulsion
-        for (const aid of movableIds) {
-            const a = nodePos[aid]; if (!a) continue;
-            let fx = 0, fy = 0;
-            for (const bid of allIds) {
-                if (aid === bid || !nodePos[bid]) continue;
-                const b    = nodePos[bid];
-                const dx   = a.x - b.x, dy = a.y - b.y;
-                const dist = Math.sqrt(dx * dx + dy * dy) || 0.001;
-                const minD = NODES[aid].radius + NODES[bid].radius + PAD;
-                if (dist >= minD) continue;
-                const s = (minD - dist) / dist;
-                fx += dx * s; fy += dy * s;
-                active = true;
-            }
-            a.x += fx * 0.5; a.y += fy * 0.5;
-        }
-
-        // spring constraints — pull/push nodes toward their rest edge lengths
-        applySpring(movSet, 0.12);
-
-        // flush positions
-        for (const aid of movableIds) {
-            const el = nodeEls[aid]; if (!el) continue;
-            el.style.left = (nodePos[aid].x - NODES[aid].radius) + 'px';
-            el.style.top  = (nodePos[aid].y - NODES[aid].radius) + 'px';
-        }
-
-        refreshEdges();
-        iter++;
-        if (iter < MAX && (active || iter < 20)) simRaf = requestAnimationFrame(step);
-    }
-
-    simRaf = requestAnimationFrame(step);
-}
-
-/* ── node DOM ────────────────────────────────────────────── */
-function makeNodeEl(id) {
-    const d  = NODES[id];
-    const sz = d.radius * 2;
-
-    const el = document.createElement('div');
-    el.className = `gn gn-${d.type}`;
-    el.dataset.id = id;
-    el.style.cssText = `width:${sz}px;height:${sz}px;`;
-    el.style.setProperty('--nc', d.color);
-
-    // rough.js circle
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('width', sz);
-    svg.setAttribute('height', sz);
-    svg.style.cssText = 'position:absolute;top:0;left:0;overflow:visible;pointer-events:none;';
-    const rcN = rough.svg(svg);
-    const hex = d.color.replace('#', '');
-    const r = parseInt(hex.slice(0, 2), 16);
-    const g = parseInt(hex.slice(2, 4), 16);
-    const b = parseInt(hex.slice(4, 6), 16);
-    svg.appendChild(rcN.circle(d.radius, d.radius, sz - 8, {
-        stroke:      d.color,
-        strokeWidth: d.type === 'root' ? 2.8 : d.type === 'page' ? 1.6 : 2.2,
-        fill:        `rgba(${r},${g},${b},0.08)`,
-        fillStyle:   'solid',
-        roughness:   d.type === 'page' ? 1.0 : 1.5,
-        hachureGap:  8,
-    }));
-    el.appendChild(svg);
-
-    // label
-    const lbl = document.createElement('div');
-    lbl.className = 'gn-lbl';
-    lbl.innerHTML = d.label.split('\n').join('<br>');
-    if (d.sub) {
-        const sub = document.createElement('div');
-        sub.className = 'gn-sub';
-        sub.textContent = d.sub;
-        lbl.appendChild(sub);
-    }
-    el.appendChild(lbl);
-
-    // hover tooltip for nodes with a description
-    if (d.desc) {
-        const tip = document.createElement('div');
-        tip.className = 'gn-tip';
-        tip.textContent = d.desc;
-        el.appendChild(tip);
-    }
-
-    el.addEventListener('mouseenter', () => el.classList.add('hov'));
-    el.addEventListener('mouseleave', () => el.classList.remove('hov'));
-    el.addEventListener('mousedown', e => {
-        e.stopPropagation();
-        if (simRaf) cancelAnimationFrame(simRaf);
-        dragNode    = id;
-        dragStartCX = e.clientX;
-        dragStartCY = e.clientY;
-        dragOriginX = nodePos[id].x;
-        dragOriginY = nodePos[id].y;
-        isDragNode  = false;
-        el.style.zIndex = '50';
-        document.body.style.cursor = 'grabbing';
-    });
-    return el;
-}
-
-function spawn(id, x, y, angle, depth) {
-    nodePos[id] = { x, y, angle, depth };
-    const d  = NODES[id];
-    const el = makeNodeEl(id);
-    el.style.left      = (x - d.radius) + 'px';
-    el.style.top       = (y - d.radius) + 'px';
-    el.style.transform = 'scale(0)';
-    el.style.opacity   = '0';
-    world.appendChild(el);
-    nodeEls[id] = el;
-    requestAnimationFrame(() => {
-        el.style.transition = 'transform .5s cubic-bezier(.34,1.56,.64,1), opacity .4s ease';
-        el.style.transform  = 'scale(1)';
-        el.style.opacity    = '1';
-    });
-}
-
-function despawn(id, tx, ty) {
-    const el = nodeEls[id];
-    if (!el) return;
-    const r = NODES[id].radius;
-    el.style.transition = 'transform .35s ease-in, opacity .3s ease-in, left .35s ease-in, top .35s ease-in';
-    el.style.left      = (tx - r) + 'px';
-    el.style.top       = (ty - r) + 'px';
-    el.style.transform = 'scale(0)';
-    el.style.opacity   = '0';
-    setTimeout(() => el.remove(), 380);
-    delete nodeEls[id];
-    delete nodePos[id];
-}
-
-/* ── edges ───────────────────────────────────────────────── */
-function addEdge(from, to) {
-    const fp  = nodePos[from], tp = nodePos[to];
-    const key = `${from}:${to}`;
-    const dxr = tp.x - fp.x, dyr = tp.y - fp.y;
-    edgeRest[key] = Math.sqrt(dxr * dxr + dyr * dyr);
-
-    // offset start/end to circle surfaces so line doesn't poke through nodes
-    const dx = tp.x - fp.x, dy = tp.y - fp.y;
-    const len = Math.sqrt(dx * dx + dy * dy) || 1;
-    const nx = dx / len, ny = dy / len;
-    const x1 = fp.x + nx * NODES[from].radius;
-    const y1 = fp.y + ny * NODES[from].radius;
-    const x2 = tp.x - nx * NODES[to].radius;
-    const y2 = tp.y - ny * NODES[to].radius;
-
-    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', x1);
-    line.setAttribute('y1', y1);
-    line.setAttribute('x2', x2);
-    line.setAttribute('y2', y2);
-    line.setAttribute('stroke', NODES[to].color);
-    line.setAttribute('stroke-width', '2');
-    line.setAttribute('stroke-linecap', 'round');
-    line.style.opacity    = '0';
-    line.style.transition = 'opacity .45s ease';
-    edgesSvg.appendChild(line);
-    edgeEls[key] = line;
-    requestAnimationFrame(() => { line.style.opacity = '0.55'; });
-}
-
-function removeEdge(from, to) {
-    const key  = `${from}:${to}`;
-    const line = edgeEls[key];
-    if (!line) return;
-    line.style.opacity = '0';
-    setTimeout(() => line.remove(), 400);
-    delete edgeEls[key];
-    delete edgeRest[key];
-}
-
-/* ── expand / collapse ───────────────────────────────────── */
-function expand(id) {
-    if (expanded.has(id)) return;
-    expanded.add(id);
-    const d    = NODES[id];
-    const p    = nodePos[id];
-    const aa   = fanAngles(d.children.length, p.angle);
-    const dd   = calcChildDist(id);
-    const newIds = [];
-    d.children.forEach((cid, i) => {
-        const a = aa[i];
-        spawn(cid, p.x + Math.cos(a) * dd, p.y + Math.sin(a) * dd, a, p.depth + 1);
-        newIds.push(cid);
-        setTimeout(() => addEdge(id, cid), 60);
-    });
-    runSim(newIds);
-}
-
-function collapse(id) {
-    if (!expanded.has(id)) return;
-    const origin = { x: nodePos[id].x, y: nodePos[id].y };
-    const toRemove = [];
-
-    function collect(nid) {
-        expanded.delete(nid);
-        NODES[nid].children.forEach(cid => {
-            removeEdge(nid, cid);
-            if (nodeEls[cid]) {
-                collect(cid);
-                toRemove.push(cid);
-            }
-        });
-    }
-    collect(id);
-    // remove deepest nodes first (collect is depth-first, so toRemove is leaves-first)
-    toRemove.forEach((cid, i) => setTimeout(() => despawn(cid, origin.x, origin.y), i * 22));
-}
-
-function onNodeClick(id) {
-    const d = NODES[id];
-    if (d.children.length > 0) {
-        if (expanded.has(id)) {
-            collapse(id);
-            centerOn(id);
-        } else {
-            expand(id);
-            setTimeout(() => centerOnGroup([id, ...NODES[id].children]), 120);
-        }
-    } else if (d.url) {
-        window.location.href = d.url;
-    } else {
-        centerOn(id);
-    }
-}
-
-/* ── pan & zoom ──────────────────────────────────────────── */
-viewport.addEventListener('mousedown', e => {
-    if (e.target.closest('.gn')) return;
-    dragging = true;
-    dx0 = e.clientX; dy0 = e.clientY; wx0 = wx; wy0 = wy;
-    viewport.style.cursor = 'grabbing';
-    world.style.transition = 'none';
-});
-window.addEventListener('mousemove', e => {
-    if (dragging) {
-        wx = wx0 + (e.clientX - dx0);
-        wy = wy0 + (e.clientY - dy0);
-        world.style.transform = `translate(${wx}px,${wy}px) scale(${wScale})`;
-    }
-    if (dragNode && nodePos[dragNode]) {
-        const ddx = e.clientX - dragStartCX;
-        const ddy = e.clientY - dragStartCY;
-        if (!isDragNode && (ddx * ddx + ddy * ddy) > 36) isDragNode = true;
-        if (isDragNode) {
-            const p = nodePos[dragNode];
-            p.x = dragOriginX + ddx / wScale;
-            p.y = dragOriginY + ddy / wScale;
-            const el = nodeEls[dragNode];
-            if (el) {
-                el.style.left = (p.x - NODES[dragNode].radius) + 'px';
-                el.style.top  = (p.y - NODES[dragNode].radius) + 'px';
-            }
-            propagateDrag(dragNode);
-            // pushFromDragged(dragNode);
-            refreshEdges();
-        }
-    }
-});
-window.addEventListener('mouseup', () => {
-    dragging = false;
-    viewport.style.cursor = '';
-    document.body.style.cursor = '';
-    if (dragNode) {
-        const id = dragNode;
-        dragNode = null;
-        if (nodeEls[id]) nodeEls[id].style.zIndex = '';
-        if (isDragNode) {
-            // let everything except root settle after the drop
-            const movable = Object.keys(nodePos).filter(nid => nid !== 'root');
-            runSim(movable, new Set(['root']));
-        } else {
-            onNodeClick(id);
-        }
-    }
-});
-
-viewport.addEventListener('wheel', e => {
-    e.preventDefault();
-    const s  = Math.max(0.25, Math.min(3, wScale * (e.deltaY > 0 ? 0.9 : 1.1)));
-    const mx = e.clientX, my = e.clientY;
-    wx = mx - (mx - wx) / wScale * s;
-    wy = my - (my - wy) / wScale * s;
-    wScale = s;
-    world.style.transition = 'none';
-    world.style.transform  = `translate(${wx}px,${wy}px) scale(${wScale})`;
-}, { passive: false });
-
-// touch: one finger = pan, two fingers = pinch-zoom
-viewport.addEventListener('touchstart', e => {
-    if (e.touches.length === 1) {
-        dragging = true;
-        dx0 = e.touches[0].clientX; dy0 = e.touches[0].clientY; wx0 = wx; wy0 = wy;
-    } else if (e.touches.length === 2) {
-        dragging = false;
-        pinchDist = Math.hypot(
-            e.touches[1].clientX - e.touches[0].clientX,
-            e.touches[1].clientY - e.touches[0].clientY);
-    }
-}, { passive: true });
-viewport.addEventListener('touchmove', e => {
-    e.preventDefault();
-    if (e.touches.length === 1 && dragging) {
-        wx = wx0 + (e.touches[0].clientX - dx0);
-        wy = wy0 + (e.touches[0].clientY - dy0);
-        world.style.transition = 'none';
-        world.style.transform  = `translate(${wx}px,${wy}px) scale(${wScale})`;
-    } else if (e.touches.length === 2) {
-        const d2 = Math.hypot(
-            e.touches[1].clientX - e.touches[0].clientX,
-            e.touches[1].clientY - e.touches[0].clientY);
-        wScale = Math.max(0.25, Math.min(3, wScale * d2 / pinchDist));
-        pinchDist = d2;
-        world.style.transition = 'none';
-        world.style.transform  = `translate(${wx}px,${wy}px) scale(${wScale})`;
-    }
-}, { passive: false });
-viewport.addEventListener('touchend', () => { dragging = false; }, { passive: true });
-
-/* ── init ────────────────────────────────────────────────── */
-window.addEventListener('DOMContentLoaded', () => {
-    wScale = 0.9;
-    spawn('root', 0, 0, null, 0);
-    wx = window.innerWidth  / 2;
-    wy = window.innerHeight / 2;
-    applyT(false);
-
-    setTimeout(() => {
-        expand('root');
-        setTimeout(() => centerOnGroup(['root', ...NODES.root.children]), 200);
-    }, 300);
-});
+toggle.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+backdrop.addEventListener('click', closeSidebar);
 </script>
+
 </body>
 </html>

@@ -3,25 +3,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryan | Slime Mold & Ant Colony</title>
+    <title>Ryan | Slime Mold &amp; Ant Colony</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <nav class="nav">
-        <ul>
-            <li><a href="index.html"><h3>Home</h3></a></li>
-        </ul>
-    </nav>
-    <div class="page-wrap">
-        <div class="header">
+<body class="project-body">
+    <a class="back-link" href="index.html">← Home</a>
+    <div class="project-wrap">
+        <div class="project-header">
+            <div class="project-tag" style="--tc:#2e9e5a;">Simulation</div>
             <h1>Slime Mold &amp; Ant Colony Path Optimization</h1>
         </div>
-        <div class="project-page">
-            <div class="meta">
-                <div><b>Languages:</b> Python</div>
-                <div><b>Technologies:</b> Pygame, NumPy</div>
-                <div><b>GitHub:</b> <a href="https://github.com/rzheng1232/ant-sim">link</a></div>
-            </div>
+        <div class="project-meta">
+            <div><b>Languages:</b> Python</div>
+            <div><b>Technologies:</b> Pygame, NumPy</div>
+            <div><b>GitHub:</b> <a href="https://github.com/rzheng1232/ant-sim">link</a></div>
+        </div>
+        <div class="project-content">
             <p>
                 I was first introduced to the intersection of computer science and natural processes through the YouTube channel
                 Pezzza's Work. I was fascinated by the emergent behavior arising from simple programmed interactions, so I built
@@ -33,7 +30,7 @@
                 emergent behavior I was after, both simulations were unfortunately single-threaded and slow due to my unfamiliarity
                 with parallel processing at the time — something I hope to revisit.
             </p>
-            <div class="project-image" style="margin-top:2rem;">
+            <div class="project-media">
                 <div class="image-carousel">
                     <img src="images/ant.png" class="active" style="max-width:100%; border-radius:8px;">
                     <img src="images/slime_mold.png" style="max-width:100%; border-radius:8px;">
@@ -44,8 +41,7 @@
         </div>
     </div>
     <script>
-        const carousels = document.querySelectorAll('.image-carousel');
-        carousels.forEach(c => {
+        document.querySelectorAll('.image-carousel').forEach(c => {
             const slides = Array.from(c.querySelectorAll('img, video'));
             let idx = 0;
             const show = i => { slides.forEach(s => s.classList.remove('active')); slides[i].classList.add('active'); };
