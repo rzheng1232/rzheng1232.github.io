@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ryan | DDPM in C++</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="mathjax-config.js"></script>
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 </head>
 <body class="project-body">
     <a class="back-link" href="index.html">← Home</a>
@@ -20,10 +22,63 @@
         </div>
         <div class="project-content">
             <p>
-                Its finals week and I've been super bored studying for my finals... so, I decided to write a generative diffusion model from scratch in C++ 😋
+                I got bored studying for finals, so I decided to build a diffusion image generation model completely from scratch in C++ using the MNIST dataset :P
+                <br>
+                At a high level, I first implemented the DDPM training pipeline itself. 
+                For training, I sample a random timestep $t$, corrupt a clean MNIST image $x_0$ into $x_t$ with Gaussian noise according to $xₜ = \sqrt{ᾱₜ} · x₀ + \sqrt{(1-ᾱₜ)} · ε$, and train a neural network to predict the noise that was added. At sampling time, the model starts from pure noise and iteratively denoises it step by step to generate a digit image.
+                <br>
+                The harder part was building the predictive backbone from scratch. Since most modern diffusion models use a U-Net, I initially tried simpler alternatives that were more realistic to implement fully in C++. 
+                My first attempt was a standard multilayer perceptron trained with SGD, but it quickly plateaued and mostly failed to learn meaningful noise prediction. I then implemented Adam to see whether the issue was optimization rather than architecture, but the pure MLP still struggled. 
+                After that, I experimented with a lateralized MLP design, where separate row-wise and column-wise MLPs processed spatial structure before their outputs were merged by a larger joint network. That approach was more structured than the plain MLP, but it still did not produce strong results.
+                <br>
+                The breakthrough came when I switched to a convolutional architecture. I implemented a small CNN from scratch with two 3x3 convolution layers followed by a fully connected prediction head, along with backpropagation and Adam optimization. The final model takes the noisy image and timestep information as input, predicts the added noise, and uses that estimate during reverse diffusion sampling. This version performed far better than the fully connected baselines and brought training loss down to roughly 0.1, producing noticeably better generations.
             </p>
+            <img src="images/cnnlosschartdiffusion.png" class="active" style="max-width:100%; border-radius:8px;">
+            <p>Here are some of the cool image results that were generated. The first time I ran the diffusion, I isolated the training to just images with the label 2, making the gneeration a lot higher quality. </p>
+            <div class="image-carousel">
+                <img src="images/diffusionsample2/sample1.png" alt="s1" class="active" style="max-width:100%; border-radius:8px;">
+                <img src="images/diffusionsample2/sample2.png" alt="s2" style="max-width:100%; border-radius:8px;">
+                <img src="images/diffusionsample2/sample3.png" alt="s3" style="max-width:100%; border-radius:8px;">
+                <img src="images/diffusionsample2/sample4.png" alt="s5" style="max-width:100%; border-radius:8px;">
+                <img src="images/diffusionsample2/sample5.png" alt="s6" style="max-width:100%; border-radius:8px;">
+                <button class="prev">‹</button>
+                <button class="next">›</button>
+            </div>
+            <p>Then, seeing that the isolated 2 test worked pretty well, I tried training the model on the full dataset: </p>
+            <div class="image-carousel">
+                <img src="images/diffusionsamplefull/sample1.png" alt="s1" class="active" style="max-width:100%; border-radius:8px;">
+                <img src="images/diffusionsamplefull/sample2.png" alt="s2" style="max-width:100%; border-radius:8px;">
+                <img src="images/diffusionsamplefull/sample3.png" alt="s3" style="max-width:100%; border-radius:8px;">
+                <button class="prev">‹</button>
+                <button class="next">›</button>
+            </div>
+            <p>
+                What I like most about this project is that it forced me to build every layer of the system myself: the diffusion process, sampling loop, neural network layers, convolution operations, backpropagation, and optimizer. It ended up being a much deeper dive into generative modeling than I expected, and it gave me a much better understanding of how diffusion models actually work under the hood.
+                <br>
+                <b>Note, this project is still ongoing, I plan to explore classifier-based guidance next so stay tuned! </b>
+            </p>
+
         
         </div>
     </div>
+    <script>
+        document.querySelectorAll('.image-carousel').forEach(c => {
+            const slides = Array.from(c.querySelectorAll('img, video'));
+            let idx = 0;
+            const show = i => {
+                slides.forEach(s => s.classList.remove('active'));
+                slides[i].classList.add('active');
+            };
+            show(idx);
+            c.querySelector('.next').onclick = () => {
+                idx = (idx + 1) % slides.length;
+                show(idx);
+            };
+            c.querySelector('.prev').onclick = () => {
+                idx = (idx - 1 + slides.length) % slides.length;
+                show(idx);
+            };
+        });
+    </script>
 </body>
 </html>
