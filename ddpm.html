@@ -34,7 +34,7 @@
                 The breakthrough came when I switched to a convolutional architecture. I implemented a small CNN from scratch with two 3x3 convolution layers followed by a fully connected prediction head, along with backpropagation and Adam optimization. The final model takes the noisy image and timestep information as input, predicts the added noise, and uses that estimate during reverse diffusion sampling. This version performed far better than the fully connected baselines and brought training loss down to roughly 0.1, producing noticeably better generations.
             </p>
             <img src="images/cnnlosschartdiffusion.png" class="active" style="max-width:100%; border-radius:8px;">
-            <p>Here are some of the cool image results that were generated. The first time I ran the diffusion, I isolated the training to just images with the label 2, making the gneeration a lot higher quality. </p>
+            <p>Here are some of the cool image results that were generated. The first time I ran the diffusion, I isolated the training to just images with the label 2, making the generation a lot higher quality. </p>
             <div class="image-carousel">
                 <img src="images/diffusionsample2/sample1.png" alt="s1" class="active" style="max-width:100%; border-radius:8px;">
                 <img src="images/diffusionsample2/sample2.png" alt="s2" style="max-width:100%; border-radius:8px;">
