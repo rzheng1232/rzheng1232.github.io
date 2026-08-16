@@ -276,6 +276,11 @@ body.home-body {
     padding-left: 4px;
 }
 
+.exp-highlight {
+    color: #aaa;
+    font-weight: inherit;
+}
+
 /* ── Projects ── */
 .proj-category {
     margin-bottom: 32px;
